@@ -1,0 +1,75 @@
+<form *ngIf="userForm" [formGroup]="userForm" (submit)="saveU()">
+  <div class="row no-gutters justify-content-start">
+    <div class="col border">
+      <div class="topic" (click)="isShow=!isShow"><mdb-icon fas icon="angle-up" *ngIf="!isShow"></mdb-icon><mdb-icon fas icon="angle-down" *ngIf="isShow"></mdb-icon>&nbsp;User Profile</div>
+      <div *ngIf="!isShow" class="p-3">
+
+        <div class="md-form md-bg my-0">
+          <input type="text" id="name" class="form-control" formControlName="name" required mdbInput>
+          <label for="name">Login name</label>
+          <mdb-error class="error" *ngIf="isControlInvalid('name')">Only letters, digits and spaces!</mdb-error>
+        </div>
+        
+
+        <div class="md-form md-bg my-0">
+          <input type="email" id="email" class="form-control" formControlName="email" required mdbInput>
+          <label for="name">Email</label>
+          <mdb-error *ngIf="isControlInvalid('email')">That's not email!</mdb-error>
+        </div>
+        
+
+        <div class="row no-gutters">
+          <div class="md-form col md-bg my-0 mr-1">
+            <input type="password" id="password" class="form-control" formControlName="password" required mdbInput>
+            <label for="name">Password</label>
+            <mdb-error *ngIf="isControlInvalid('password')">Password has bad characters!</mdb-error>
+          </div>
+          <div class="md-form col md-bg my-0 ml-1">
+            <input type="password" id="con_password" class="form-control" formControlName="con_password" required mdbInput>
+            <label for="name">Confirm password</label>
+            <mdb-error *ngIf="isPassNotEqual()">Passwords not match!</mdb-error>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save</button>
+      </div>
+
+      <div class="topic" (click)="isShow2=!isShow2"><mdb-icon fas icon="angle-up" *ngIf="!isShow2"></mdb-icon><mdb-icon fas icon="angle-down" *ngIf="isShow2"></mdb-icon>&nbsp;User Permissions</div>
+      <div *ngIf="!isShow2" class="p-2">
+        <div class="my_checkbox">
+          <div formArrayName="permissions" *ngFor="let permission of formPermissions.controls; let i = index">
+            <input type="checkbox" *ngIf="permissions" id="permission_{{permissions[i].id}}" value="{{permissions[i].id}}" [formControlName]="i" />
+            <label for="permission_{{permissions[i].id}}" *ngIf="permissions" class="font-weight-normal w-100">{{permissions[i].name}}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic" (click)="isShow3=!isShow3"><mdb-icon fas icon="angle-up" *ngIf="!isShow3"></mdb-icon><mdb-icon fas icon="angle-down" *ngIf="isShow3"></mdb-icon>&nbsp;Effective Permissions</div>
+      <div *ngIf="!isShow3" class="p-2" >
+        <div *ngFor="let permission of effectivePermissions; let i = index">
+          <div class="my_checkbox">
+            <input type="checkbox" *ngIf="permissions" id="e_permission_{{permissions[i].id}}" value="{{permissions[i].id}}" [formControl]="permission" />
+            <label for="e_permission_{{permissions[i].id}}" *ngIf="permissions" class="font-weight-normal w-100">{{permissions[i].name}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col border">
+      <div class="topic" (click)="isShow4=!isShow4"><mdb-icon fas icon="angle-up" *ngIf="!isShow4"></mdb-icon><mdb-icon fas icon="angle-down" *ngIf="isShow4"></mdb-icon>&nbsp;Group Memberships</div>
+      <div *ngIf="!isShow4" class="p-2">
+        <div class="form-group has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="search" class="form-control" formControlName="group_filter" />
+        </div>
+        <div formArrayName="groups" *ngFor="let group of formGroups.controls; let i = index">
+          <div *ngIf="userForm?.get('group_filter')?.value?.length < 1 || groups && groups[i].name?.toLowerCase()?.includes(userForm.get('group_filter')?.value?.toLowerCase())">
+            <div class="my_checkbox">
+              <input type="checkbox" *ngIf="groups" id="group_{{groups[i].id}}" value="{{groups[i].id}}" [formControlName]="i" />
+              <label for="group_{{groups[i].id}}" *ngIf="groups" class="font-weight-normal w-100">{{groups[i].name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

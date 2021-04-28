@@ -1,0 +1,41 @@
+.has-search .form-control {
+  padding-left: 2rem;
+  margin: 1rem 1rem 0 1rem;
+  width: 92%;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  left: 1.6rem;
+  width: 2.375rem;
+  height: 4.375rem;
+  line-height: 4.375rem;
+  text-align: left;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.list-group-item {
+  background-color: #eeeeee;
+  border-color: #e0e0e0;
+  user-select: none;
+}
+
+.list-group-item:hover:not(.head) {
+  background-color: #e8f5e9;
+  border-color: #e8f5e9;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  background-color: #1b5e20;
+  border-color: #1b5e20;
+}
+
+.list-group-item.active {
+  background-color: #1b5e20;
+  border-color: #1b5e20;
+}
+
+

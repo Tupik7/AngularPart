@@ -1,0 +1,87 @@
+form .topic {
+  background-color: dimgray;
+  color: white;
+  font-size: medium;
+  border-right: 1px solid gray;
+  line-height: 3rem;
+  user-select: none;
+}
+
+.topic mdb-icon {
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+}
+
+/* Draw our custom check box */
+.my_checkbox {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-top: 0.5rem;
+  margin-left: 0.3rem;
+  user-select: none;
+}
+
+.my_checkbox input[type=checkbox] {
+  display: none;
+}
+
+.my_checkbox label {
+  cursor: pointer;
+}
+
+.my_checkbox label:before {
+  display: inline-block;
+  width: 2rem;
+  line-height: 2rem;
+  margin-right: 1rem;
+  content: "\00a0";
+  font-size: 1.5rem;
+  text-align: center;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.my_checkbox label:hover::before {
+  background: #bbb;
+}
+
+/* On check */
+.my_checkbox input:checked ~ label:before {
+  content: "\2713";
+  font-size: 1.5rem;
+  background: #ccc;
+  color: green;
+}
+
+.my_checkbox input:checked ~ label:hover::before {
+  background: #bbb;
+}
+
+/* Disabled */
+.my_checkbox input:disabled ~ label {
+  color: #888;
+}
+
+.my_checkbox input:disabled ~ label:before, .my_checkbox input:checked:disabled ~ label:before {
+  background: #ddd;
+}
+
+.has-search .form-control {
+  padding-left: 2rem;
+  margin: 0.5rem 1rem 0 0.3rem;
+  width: 95%;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  left: 1.4rem;
+  top: 3rem;
+  width: 2.375rem;
+  height: 4.375rem;
+  line-height: 4.375rem;
+  text-align: left;
+  pointer-events: none;
+  color: #aaa;
+}

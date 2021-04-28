@@ -1,0 +1,21 @@
+<form *ngIf="permForm" [formGroup]="permForm" (submit)="savePermission()">
+  <div class="row no-gutters justify-content-start">
+    <div class="col border">
+      <div class="topic" (click)="isShow=!isShow"><mdb-icon fas icon="angle-up" *ngIf="!isShow"></mdb-icon><mdb-icon fas icon="angle-down" *ngIf="isShow"></mdb-icon>&nbsp;Permission Details</div>
+      <div *ngIf="!isShow" class="p-3">
+        <!-- Material background input -->
+        <div class="md-form md-bg my-0">
+          <input type="text" id="name" class="form-control" formControlName="name" required mdbInput>
+          <label for="name">Permission name</label>
+          <mdb-error class="error" *ngIf="isControlInvalid('name')">Only letters, digits and spaces!</mdb-error>
+        </div>
+        
+        <button type="submit" [disabled]="!permForm.valid" class="btn btn-success">Save</button>
+      </div>
+
+    </div>
+    <div class="col border">
+
+    </div>
+  </div>
+</form>

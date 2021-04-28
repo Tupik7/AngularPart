@@ -1,0 +1,13 @@
+form .topic {
+  background-color: dimgray;
+  color: white;
+  font-size: medium;
+  border-right: 1px solid gray;
+  line-height: 3rem;
+  user-select: none;
+}
+
+.topic mdb-icon {
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+}

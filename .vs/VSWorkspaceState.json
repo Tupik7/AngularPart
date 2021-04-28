@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\group-detail",
+    "\\src\\app\\components\\home",
+    "\\src\\app\\components\\permission-detail",
+    "\\src\\app\\components\\user-detail",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\components\\group-detail\\group-detail.component.ts",
+  "PreviewInSolutionExplorer": false
+}
